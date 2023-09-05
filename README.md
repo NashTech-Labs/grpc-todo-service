@@ -11,4 +11,14 @@ Before running the project, make sure you have the following prerequisites insta
 - Maven
 
 ## Getting Started
+Run the main class from intellij
 
+or
+```
+mvn spring-boot:run
+```
+### Check build reports-
+Run the command
+```
+mvn clean install
+```
