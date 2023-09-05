@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.nashtech.protoBuf";
+
+message Todo {
+  int32 id = 1;
+  string title = 2;
+  string description = 3;
+  bool done = 4;
+}
+
+message TodoId {
+  int32 id = 1;
+}
+
+message TodoAll {
+}
+
+message ListTodoResponse {
+  // List of ToDos
+  repeated Todo todo = 1;
+}
+
+message CreateTodoRequest {
+  string title = 1;
+  string description = 2;
+}
+
+message UpdateTodoRequest {
+  int32 id = 1;
+  string title = 2;
+  string description = 3;
+  bool done = 4;
+}
+
+message DeleteTodoResponse {
+  enum Status {
+    DELETED_SUCCESSFULLY = 0;
+    ID_NOT_FOUND = 1;
+  }
+
+  Status status = 1;
+  string message = 2;
+}
+
+message UpdateTodoResponse {
+  string message = 1;
+  Todo updatedTodo = 2;
+}
+
+service TodoService {
+  rpc CreateTodo (CreateTodoRequest) returns (Todo);
+  rpc GetTodo (TodoId) returns (Todo);
+  rpc UpdateTodo (UpdateTodoRequest) returns (UpdateTodoResponse);
+  rpc DeleteTodo (TodoId) returns (DeleteTodoResponse);
+  rpc ListAllTodo (TodoAll) returns (ListTodoResponse);
+}
