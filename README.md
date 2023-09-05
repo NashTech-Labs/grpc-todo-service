@@ -22,3 +22,10 @@ Run the command
 ```
 mvn clean install
 ```
+
+Watch the below video to see how you can test your gRPC service on bloomRPC.
+
+
+https://github.com/NashTech-Labs/grpc-todo-service/assets/87004261/34045517-63b5-43dc-9dde-acb194f9c698
+
+
